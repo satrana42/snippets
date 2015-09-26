@@ -9,12 +9,12 @@ struct kmp{
 		t = _t;
 		p = _p;
 		b = new int[p.length()+1];
-		m = new int[t.length()];
+		m = new int[t.length()+1];
 	}
 	void init(){
 		int i=0,j=-1;
 		b[0]=-1;
-		while(i<t.length()){
+		while(i<p.length()){
 			while(j>=0 && p[j] != p[i]) j=b[j];
 			i++; j++;
 			b[i]=j;
