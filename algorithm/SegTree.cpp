@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// Segment Tree with Lazy Propogation
+// Segment Tree
 // Tested here: http://codeforces.com/contest/597/submission/14216114
 const int N = 1e5+5, inf = 2e9; // N -> max size of base array
 struct segtree{ //max segtree
