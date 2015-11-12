@@ -5,11 +5,10 @@ using namespace std;
 // Tested here: http://codeforces.com/contest/597/submission/14216114
 const int N = 1e5+5, inf = 2e9; // N -> max size of base array
 struct segtree{ //max segtree
-	int n, t[4*N], d[4*N]; // n -> size of base array, t[i] -> value of segtree nodes, d[i] -> lazy update
+	int n, t[4*N]; // n -> size of base array, t[i] -> value of segtree nodes, d[i] -> lazy update
 	segtree(int _n = 0){
 		n = _n;
 		memset(t,0,sizeof(int)*4*n); // 0 -> default value 
-		memset(d,0,sizeof(int)*4*n);
 	}
 	int _update(int k, int l, int r, int x, int v) { // k -> node number, [l,r] -> segtree interval, x -> update index, v -> increment value 
 	    if(l > x || r < x) {
