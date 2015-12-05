@@ -18,8 +18,10 @@ void dfs(int u, int p){
 	}
 }
 void lca_table(){
-	for(int i=0;i<n;i++){
-		for(int j=1;j<lg;j++){
+	memset(P,-1,sizeof P);
+	dfs(0,-1);
+	for(int j=1;j<lg;j++){
+		for(int i=0;i<n;i++){
 			if(P[i][j-1] == -1) P[i][j] = -1;
 			else P[i][j] = P[P[i][j-1]][j-1];
 		}
@@ -50,7 +52,6 @@ int main(){
 		u--; v--;
 		e[u].pb(v); e[v].pb(u);
 	}
-	dfs(0,-1);
 	lca_table();
 	int m; cin >> m;
 	while(m--){
