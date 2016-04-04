@@ -4,7 +4,12 @@ using namespace std;
 //Tested on SPOJ/TAXI
 const int maxn = 1005, inf  = 1e9+7;
 int e[maxn][maxn], from[maxn]; // Set edge capacity
-
+void init(){
+	memset(e,0,sizeof e);
+}
+void add_edge(int u, int v, int c){
+	e[u][v] += c;
+}
 int find_path(int n, int source, int sink){
 	queue<int> q;
 	memset(from,-1,sizeof from);

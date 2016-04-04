@@ -8,6 +8,14 @@ using namespace std;
 // If you fill adj[][] yourself, make sure to include both u->v and v->u.
 int cap[NN][NN], deg[NN], adj[NN][NN];
 
+void init(){
+    memset(cap,0,sizeof cap);
+}
+
+void add_edge(int u, int v, int c){
+    cap[u][v] += c;
+}
+
 // BFS stuff
 int q[NN], prv[NN];
 

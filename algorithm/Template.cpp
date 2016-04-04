@@ -5,9 +5,9 @@
 #include <ext/pb_ds/tree_policy.hpp>
 using namespace __gnu_pbds;
 using namespace std;
+#define T int
+#define ordered_set tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>
 
-#define OST int
-#define ordered_set tree<OST, null_type, less<OST>, rb_tree_tag, tree_order_statistics_node_update>
 
 void testOrderedSet(){
 	ordered_set s;
@@ -42,5 +42,7 @@ void testComparisonClass(){
 /*Debug macros end*/
 
 int main(){
+	ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
+	testOrderedSet();
 	return 0;
 }

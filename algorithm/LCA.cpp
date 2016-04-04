@@ -57,20 +57,6 @@ int main(){
 	while(m--){
 		int u,v; cin >> u >> v;
 		u--; v--;
-		if(D[u] > D[v]) swap(u,v);
-		int l = lca(u,v), d;
-		if(l == u) d = D[v] - D[u];
-		else d = D[v] + D[u] - 2*D[l];
-		if(d&1) cout << 0 << "\n";
-		else if(d == 0) cout << n << "\n";
-		else{
-			int mid = parent(v,d/2), vv = parent(v,d/2-1);
-			int cnt = S[mid]-S[vv];
-			if(mid == l){
-				int uu = parent(u,d/2-1);
-				cnt = n -S[uu] - S[vv];
-			}
-			cout << cnt << "\n";
-		}
+		int l = lca(u,v);
 	}
 }

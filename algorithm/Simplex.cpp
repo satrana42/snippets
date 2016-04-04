@@ -1,4 +1,6 @@
 #include <bits/stdc++.h>
+using namespace std;
+
 // Two-phase simplex algorithm for solving linear programs of the form
 //
 //     maximize     c^T x
@@ -15,8 +17,6 @@
 //
 // To use this code, create an LPSolver object with A, b, and c as
 // arguments.  Then, call Solve(x).
-
-using namespace std;
 
 typedef long double DOUBLE;
 typedef vector<DOUBLE> VD;

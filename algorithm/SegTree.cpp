@@ -5,12 +5,14 @@ using namespace std;
 // Tested here: http://codeforces.com/contest/597/submission/14216114
 const int N = 1e5+5, inf = 2e9; // N -> max size of base array
 struct segtree{ //max segtree
-	int n, t[4*N]; // n -> size of base array, t[i] -> value of segtree nodes, d[i] -> lazy update
+	int n, t[4*N]; 
+	// n -> size of base array, t[i] -> value of segtree nodes, d[i] -> lazy update
 	segtree(int _n = 0){
 		n = _n;
 		memset(t,0,sizeof(int)*4*n); // 0 -> default value 
 	}
-	int _update(int k, int l, int r, int x, int v) { // k -> node number, [l,r] -> segtree interval, x -> update index, v -> increment value 
+	int _update(int k, int l, int r, int x, int v) { 
+	// k -> node number, [l,r] -> segtree interval, x -> update index, v -> increment value 
 	    if(l > x || r < x) {
 	        return t[k];
 	    }
@@ -19,12 +21,14 @@ struct segtree{ //max segtree
 	        return t[k];
 	    }
 	    int mid = (l+r)>>1;
-	    return t[k] = max(_update(k<<1, l, mid, x, v), _update(k<<1|1, mid+1, r, x, v)); // replace max with your function
+	   	// replace max with your function
+	    return t[k] = max(_update(k<<1, l, mid, x, v), _update(k<<1|1, mid+1, r, x, v)); 
 	}
 	void update(int i, int v){ // i -> update index, v -> increment value
 		_update(1, 0, n-1, i, v);
 	}
-	int _query(int k, int l, int r, int x, int y) { // k -> node number, [l,r] -> segtree interval, [x,y] -> query interval
+	int _query(int k, int l, int r, int x, int y) { 
+	// k -> node number, [l,r] -> segtree interval, [x,y] -> query interval
 	    if(l > y || r < x) {
 	        return -inf; // return identity here
 	    }
@@ -32,7 +36,8 @@ struct segtree{ //max segtree
 	        return t[k];
 	    }
 	    int mid = (l+r)>>1;
-	    return max(_query(k<<1, l, mid, x, y), _query(k<<1|1, mid+1, r, x, y)); // replace max with your function
+	    // replace max with your function
+	    return max(_query(k<<1, l, mid, x, y), _query(k<<1|1, mid+1, r, x, y)); 
 	}
 	int query(int l, int r){ // [l,r] -> query interval
 		return _query(1,0,n-1,l,r);
