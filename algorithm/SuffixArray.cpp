@@ -3,7 +3,7 @@
 using namespace std;
 
 const int maxn = 1e5+5, lg = 18; // ceil(log N)
-char s[maxn]; int n, ln, R[lg][maxn], L[maxn]; 
+char s[2*maxn]; int n, ln, R[lg+1][2*maxn], L[2*maxn];
 // R[j][i] -> Rank (of substring of length j) starting at i
 // L[i] = LCP(i,i-1), look down for lcp definition
 
